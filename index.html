@@ -26,10 +26,12 @@
 
     /* Estilos da Navegação */
     .nav-link {
-      @apply text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors;
+      /* Modificado para gray */
+      @apply text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors;
     }
     .nav-link.active {
-      @apply bg-slate-900 text-white;
+      /* Modificado para gray-800 (contraste com bg-black) */
+      @apply bg-gray-800 text-white;
     }
 
     /* Animação de virar a carta */
@@ -79,10 +81,11 @@
     }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
+<!-- Modificado para gray -->
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
 
-  <!-- Navegação Principal -->
-  <nav class="bg-slate-800 shadow-lg">
+  <!-- Modificado para bg-black -->
+  <nav class="bg-black shadow-lg">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center h-16">
         <span class="text-white text-xl font-bold">Tecnologia e Resistência</span>
@@ -103,13 +106,15 @@
     <section id="page-home" class="page-section container mx-auto p-6 md:p-12">
       <div class="bg-white rounded-xl shadow-xl overflow-hidden">
         <div class="p-8 md:p-12">
-          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Bem-vindo(a)!</h1>
-          <p class="text-lg text-slate-600 mb-8">Este é o Jogo da Memória "Tecnologia e Resistência".</p>
+          <!-- Modificado para gray -->
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Bem-vindo(a)!</h1>
+          <p class="text-lg text-gray-600 mb-8">Este é o Jogo da Memória "Tecnologia e Resistência".</p>
 
           <div class="space-y-8">
             <div>
-              <h2 class="text-2xl font-semibold text-slate-800 border-l-4 border-slate-500 pl-4">Sobre o Projeto</h2>
-              <p class="mt-3 text-slate-700 leading-relaxed">
+              <!-- Modificado para gray -->
+              <h2 class="text-2xl font-semibold text-gray-800 border-l-4 border-gray-500 pl-4">Sobre o Projeto</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
                 Este projeto foi criado com o intuito de celebrar e dar visibilidade a personalidades negras
                 que fizeram contribuições fundamentais para os campos da ciência e tecnologia. Muitas vezes,
                 suas histórias e conquistas são invisibilizadas, e este jogo é uma forma interativa de
@@ -118,16 +123,17 @@
             </div>
             
             <div>
-              <h2 class="text-2xl font-semibold text-slate-800 border-l-4 border-slate-500 pl-4">Como Jogar</h2>
-              <p class="mt-3 text-slate-700 leading-relaxed">
+              <!-- Modificado para gray -->
+              <h2 class="text-2xl font-semibold text-gray-800 border-l-4 border-gray-500 pl-4">Como Jogar</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
                 O jogo é um clássico jogo da memória. O seu objetivo é encontrar os pares de cartas.
                 Cada par é composto por:
               </p>
-              <ul class="list-disc list-inside text-slate-700 mt-2 ml-4 space-y-1">
+              <ul class="list-disc list-inside text-gray-700 mt-2 ml-4 space-y-1">
                 <li>A <strong>foto</strong> de uma personalidade.</li>
                 <li>Um <strong>resumo</strong> de sua biografia e principais feitos.</li>
               </ul>
-              <p class="mt-3 text-slate-700 leading-relaxed">
+              <p class="mt-3 text-gray-700 leading-relaxed">
                 Clique nas cartas para virá-las e tente memorizar suas posições para encontrar todos os 10 pares.
                 Ao final, você pode visitar a página "Biografias" para rever todos os resumos.
               </p>
@@ -136,10 +142,12 @@
 
           <!-- Container dos botões -->
           <div class="text-center mt-12 flex flex-col sm:flex-row justify-center gap-4">
-            <button id="start-game-btn" class="bg-slate-800 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-slate-700 transition-colors duration-300">
+            <!-- Modificado para gray-900 (preto suave) -->
+            <button id="start-game-btn" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-800 transition-colors duration-300">
               Começar a Jogar!
             </button>
-            <button id="see-bios-btn" class="bg-slate-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-slate-500 transition-colors duration-300">
+            <!-- Modificado para gray-700 (cinza escuro) -->
+            <button id="see-bios-btn" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-600 transition-colors duration-300">
               Ver Biografias
             </button>
           </div>
@@ -159,18 +167,20 @@
       <!-- Cabeçalho com descrição do jogo -->
       <header class="relative text-center py-8 md:py-12 bg-white shadow-md">
         
-        <!-- [NOVO BOTAO] Botão para voltar para a Home -->
-        <button id="back-to-home-btn" class="absolute top-8 left-4 md:left-8 bg-slate-100 text-slate-700 font-medium py-2 px-4 rounded-lg hover:bg-slate-200 transition-colors duration-300 text-sm md:text-base">
+        <!-- Modificado para gray -->
+        <button id="back-to-home-btn" class="absolute top-8 left-4 md:left-8 bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors duration-300 text-sm md:text-base">
           &larr; Voltar
         </button>
 
         <div class="max-w-4xl mx-auto px-4">
-          <h1 class="text-4xl md:text-5xl font-bold text-slate-900">Tecnologia e Resistência</h1>
-          <p class="mt-2 text-lg text-slate-600">Um Jogo da Memória sobre Personalidades Negras</p>
+          <!-- Modificado para gray -->
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Tecnologia e Resistência</h1>
+          <p class="mt-2 text-lg text-gray-600">Um Jogo da Memória sobre Personalidades Negras</p>
           
-          <div class="mt-6 text-left border-l-4 border-slate-400 pl-4 max-w-2xl mx-auto">
-            <h2 class="font-semibold text-xl text-slate-800">Objetivo do Jogo</h2>
-            <p class="mt-1 text-slate-700">
+          <!-- Modificado para gray -->
+          <div class="mt-6 text-left border-l-4 border-gray-400 pl-4 max-w-2xl mx-auto">
+            <h2 class="font-semibold text-xl text-gray-800">Objetivo do Jogo</h2>
+            <p class="mt-1 text-gray-700">
               Combine a foto de uma personalidade com sua biografia correspondente para formar pares. O objetivo é encontrar todos os 10 pares.
             </p>
           </div>
@@ -189,17 +199,18 @@
     <!-- ==== PÁGINA: BIOGRAFIAS ==== -->
     <!-- ============================= -->
     <section id="page-biografias" class="page-section hidden container mx-auto p-6 md:p-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-8 text-center">Conheça as Personalidades</h1>
+      <!-- Modificado para gray -->
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">Conheça as Personalidades</h1>
       
-      <!-- [MODIFICADO] Grid de biografias com texto -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         <!-- Personalidade 1 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           <img src="imagens/1.png" alt="Enedina Alves Marques" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+          <!-- Modificado para gray -->
           <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-slate-900 mb-3">Enedina Alves Marques</h3>
-            <p class="text-slate-700 leading-relaxed text-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Enedina Alves Marques</h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
               Foi uma professora e a <strong>primeira engenheira negra do Brasil</strong>, e a primeira mulher a se formar em engenharia no Paraná (UFPR, 1945). Nascida em Curitiba, ela superou origens humildes, atuando como professora para pagar seus estudos. Como engenheira, seu trabalho de maior destaque foi no <strong>Plano Hidrelétrico do Paraná</strong>, sendo figura central na construção da <strong>Usina Capivari-Cachoeira</strong>. Em 1962, foi reconhecida por decreto governamental, recebendo proventos equivalentes ao salário de um juiz. Seu pioneirismo e resiliência a tornaram um símbolo, recebendo diversas homenagens póstumas, como a nomeação de uma rodovia no Paraná e um Doodle do Google.
             </p>
           </div>
@@ -208,9 +219,10 @@
         <!-- Personalidade 2 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           <img src="imagens/3.png" alt="Gerald A. Lawson" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+          <!-- Modificado para gray -->
           <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-slate-900 mb-3">Gerald A. "Jerry" Lawson</h3>
-            <p class="text-slate-700 leading-relaxed text-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Gerald A. "Jerry" Lawson</h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
               Engenheiro eletrônico americano e um dos principais <strong>pioneiros dos videogames modernos</strong>. Trabalhando na Fairchild Semiconductor, Lawson liderou a equipe que criou o conceito de <strong>videogame comercial com cartucho de videogame em ROM removível</strong>. Essa invenção, implementada no console <strong>Fairchild Channel F (1976)</strong>, revolucionou a indústria, permitindo a troca de jogos e estabelecendo o modelo de negócios de software. Lawson também desenvolveu um dos primeiros jogos de arcade conduzidos por microprocessador, o <strong>Demolition Derby</strong>. Em vida e postumamente, recebeu diversas homenagens, incluindo a nomeação como herói da indústria pela IGDA. Seu legado continua através do Fundo Gerald A. Lawson, que apoia estudantes negros e indígenas na área de videogames.
             </p>
           </div>
@@ -219,9 +231,10 @@
         <!-- Personalidade 3 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           <img src="imagens/5.png" alt="Hadiyah-Nicole Green" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+          <!-- Modificado para gray -->
           <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-slate-900 mb-3">Hadiyah-Nicole Green</h3>
-            <p class="text-slate-700 leading-relaxed text-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Hadiyah-Nicole Green</h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
               É uma física médica americana, pioneira por ser uma das poucas mulheres negras doutoras em física no país. Seu trabalho de destaque é o desenvolvimento de um inovador <strong>tratamento contra o câncer que utiliza nanopartículas ativadas por laser</strong> para destruir seletivamente células cancerosas, minimizando os efeitos colaterais. Motivada por perdas familiares, ela fundou a <strong>Fundação Ora Lee Smith</strong> para tornar tratamentos eficazes e acessíveis. Após ser recrutada pela Morehouse School of Medicine e receber uma bolsa de US$ 1,1 milhão para sua pesquisa, ela foi recentemente indicada para o <strong>Presidential Lifetime Achievement Award</strong> por suas contribuições científicas e serviço comunitário, sendo um modelo para a juventude negra e defensora da ciência.
             </p>
           </div>
@@ -230,9 +243,10 @@
         <!-- Personalidade 4 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           <img src="imagens/7.png" alt="Jane Cooke Wright" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+          <!-- Modificado para gray -->
           <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-slate-900 mb-3">Jane Cooke Wright</h3>
-            <p class="text-slate-700 leading-relaxed text-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Jane Cooke Wright</h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
               Foi uma oncologista e cirurgiã americana, pioneira com grandes <strong>contribuições para a quimioterapia</strong>. Ela é creditada por desenvolver técnicas de <strong>cultura de tecidos humanos</strong> para testar os efeitos de drogas em células cancerosas, um avanço que substituiu o uso de cobaias. Wright foi pioneira no uso do medicamento <strong>Metotrexato</strong> no tratamento de câncer de mama e de pele (micose fungoide), e focou na combinação de quimioterápicos para aumentar a eficácia e reduzir efeitos colaterais. Sucedendo seu pai na direção do Centro de Pesquisa do Câncer do Hospital do Harlem, Wright co-fundou a <strong>Sociedade de Oncologia Clínica Americana (ASCO)</strong> em 1964. Ela também trabalhou no Conselho Nacional do Câncer (indicada pelo Presidente Lyndon Johnson) e liderou missões médicas internacionais na África e Europa.
             </p>
           </div>
@@ -241,9 +255,10 @@
         <!-- Personalidade 5 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           <img src="imagens/9.png" alt="Janice Wilkins" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+          <!-- Modificado para gray -->
           <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-slate-900 mb-3">Janice Wilkins</h3>
-            <p class="text-slate-700 leading-relaxed text-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Janice Wilkins</h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
               É ex-Vice-Presidente de Finanças e <strong>Diretora de Auditoria Interna da Intel Corporation</strong>, onde trabalhou por 29 anos, gerenciando equipes globais de auditoria, investigações, ética e conformidade. Aposentando-se em 2010. Atualmente, ela atua como <strong>Diretora da American States Water</strong>, trazendo vasta experiência em contabilidade, finanças, auditoria interna e ética. É formada em Contabilidade (Xavier University) e possui MBA (Golden Gate University). Wilkins foi reconhecida pela Ebony Magazine como uma das afro-americanas de <strong>maior destaque no mercado corporativo</strong>. Ela também atua ativamente em conselhos universitários e organizações cívicas, como a Links, Inc., promovendo atividades educacionais e culturais.
             </p>
           </div>
@@ -252,9 +267,10 @@
         <!-- Personalidade 6 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           <img src="imagens/11.png" alt="Mark Dean" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+          <!-- Modificado para gray -->
           <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-slate-900 mb-3">Mark Dean</h3>
-            <p class="text-slate-700 leading-relaxed text-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Mark Dean</h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
               É um inventor e engenheiro de computação americano, fundamental no desenvolvimento do <strong>computador pessoal (PC) da IBM</strong>. Seus principais feitos incluem ser <strong>co-criador do IBM PC (1981)</strong> e deter três das nove patentes originais. Ele também desenvolveu o <strong>barramento ISA</strong>, crucial para a expansão do PC, e liderou a equipe que projetou o <strong>primeiro chip de processador de um gigahertz</strong> (1999). Dean foi o <strong>primeiro IBM Fellow afro-americano</strong> (1995), a maior honraria técnica da empresa. Com mais de 20 patentes, ele também contribuiu para o monitor colorido. Após se aposentar da IBM em 2013, tornou-se professor na Universidade do Tennessee.
             </p>
           </div>
@@ -263,9 +279,10 @@
         <!-- Personalidade 7 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           <img src="imagens/13.png" alt="Otis Boykin" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+          <!-- Modificado para gray -->
           <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-slate-900 mb-3">Otis Boykin</h3>
-            <p class="text-slate-700 leading-relaxed text-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Otis Boykin</h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
               Foi um influente inventor e engenheiro eletrônico americano, notável por suas contribuições em resistores e dispositivos médicos. Seu trabalho mais famoso foi o desenvolvimento de uma <strong>unidade de controle para o marca-passo cardíaco artificial</strong>, uma invenção inspirada pela morte de sua mãe por insuficiência cardíaca. Ele também patenteou um <strong>resistor elétrico aprimorado</strong> e um <strong>resistor variável</strong> usados em diversas tecnologias cruciais. Suas invenções foram amplamente aplicadas em áreas como: <strong>Computação (IBM), Orientação de mísseis e Marca-passos</strong>. Boykin patenteou um total de 26 dispositivos. Ele estudou na Fisk University e trabalhou com mentores em Chicago antes de abrir sua própria empresa de consultoria, deixando um legado essencial na eletrônica moderna.
             </p>
           </div>
@@ -274,9 +291,10 @@
         <!-- Personalidade 8 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           <img src="imagens/15.png" alt="Patricia Bath" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+          <!-- Modificado para gray -->
           <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-slate-900 mb-3">Patricia Bath</h3>
-            <p class="text-slate-700 leading-relaxed text-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Patricia Bath</h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
               Foi uma oftalmologista, inventora e acadêmica pioneira. Ela foi a <strong>primeira mulher negra médica a receber uma patente para um propósito médico</strong> nos EUA, detendo cinco patentes relacionadas à cirurgia ocular. Seu principal invento é a <strong>sonda Laserphaco (1988)</strong>, um dispositivo que usa laser para dissolver e remover cataratas de forma rápida e quase indolor, restaurando a visão de pacientes cegos. Bath foi uma "primeira": foi a primeira mulher do Instituto Jules Stein e a primeira mulher a dirigir um programa de residência em Oftalmologia nos EUA. Além disso, ela fundou o <strong>Instituto Americano para a Prevenção da Cegueira</strong> e foi pioneira na disciplina de "oftalmologia comunitária", após observar a alta prevalência de cegueira e glaucoma em populações carentes.
             </p>
           </div>
@@ -285,9 +303,10 @@
         <!-- Personalidade 9 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           <img src="imagens/17.png" alt="Phillip Emeagwali" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+          <!-- Modificado para gray -->
           <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-slate-900 mb-3">Phillip Emeagwali</h3>
-            <p class="text-slate-700 leading-relaxed text-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Phillip Emeagwali</h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
               É um cientista da computação nigeriano, <strong>pioneiro da computação paralela</strong>, tecnologia que processa bilhões de dados simultaneamente. Superando a Guerra Civil Nigeriana e a pobreza, ele se formou em matemática e engenharia nos EUA. Sua grande inovação ocorreu no doutorado, ao buscar resolver o problema de prever o fluxo de petróleo: ele se <strong>inspirou em colmeias de abelhas</strong> para criar um algoritmo que conectava 65.000 processadores, alcançando um processamento 3.1 bilhões de vezes mais rápido. Em 1989, ele <strong>venceu o Prêmio Gordon Bell</strong> (o "Nobel da Computação"). Seu trabalho pavimentou o caminho para a previsão do tempo precisa, análise genética e streaming de vídeo. Apesar de enfrentar ceticismo e polêmicas, seu legado é celebrar a inovação que nasce da persistência e inspirar jovens africanos na ciência.
             </p>
           </div>
@@ -296,9 +315,10 @@
         <!-- Personalidade 10 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           <img src="imagens/19.png" alt="Sonia Guimarães" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+          <!-- Modificado para gray -->
           <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-slate-900 mb-3">Sonia Guimarães</h3>
-            <p class="text-slate-700 leading-relaxed text-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Sonia Guimarães</h3>
+            <p class="text-gray-700 leading-relaxed text-sm">
               É uma física e professora brasileira, notável por ser a <strong>primeira mulher negra doutora em Física no Brasil</strong> e a <strong>primeira mulher negra a lecionar no Instituto Tecnológico de Aeronáutica (ITA)</strong>, onde ingressou em 1993. Especialista em semicondutores (com doutorado pela Universidade de Manchester), ela é uma <strong>defensora ativa da inclusão de mulheres e negros</strong> nas áreas de Exatas e no ambiente acadêmico, combatendo o racismo e a desigualdade de gênero. Seu impacto e pioneirismo foram reconhecidos com a <strong>Medalha Santos Dumont</strong> e a eleição como uma das <strong>100 pessoas mais inovadoras da América Latina em 2023</strong>. Sua biografia é um símbolo de superação e ativismo na ciência brasileira.
             </p>
           </div>
@@ -311,17 +331,18 @@
 
   <!-- Mensagem de vitória (Modal) - fora do main para sobrepor tudo -->
   <div id="win-message" class="hidden fixed inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center text-center p-4 z-50">
+    <!-- Modificado para gray -->
     <div class="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full transform transition-all scale-95 opacity-0 animate-fade-in-up">
-      <h2 class="text-3xl font-bold text-slate-900">Parabéns!</h2>
-      <p class="mt-2 text-slate-600">Você encontrou todos os pares e completou o jogo!</p>
-      <button id="restart" class="mt-6 bg-slate-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-opacity-50">
+      <h2 class="text-3xl font-bold text-gray-900">Parabéns!</h2>
+      <p class="mt-2 text-gray-600">Você encontrou todos os pares e completou o jogo!</p>
+      <button id="restart" class="mt-6 bg-gray-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
         Jogar Novamente
       </button>
     </div>
   </div>
   
-  <!-- Rodapé -->
-  <footer class="text-center py-10 bg-black text-slate-300 mt-auto">
+  <!-- Rodapé (Já estava bg-black) -->
+  <footer class="text-center py-10 bg-black text-gray-300 mt-auto">
     <div class="container mx-auto px-4">
         <h3 class="text-2xl font-semibold mb-6">Contatos dos Desenvolvedores</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -385,7 +406,7 @@
       const pages = document.querySelectorAll('.page-section');
       const startGameBtn = document.getElementById('start-game-btn');
       const seeBiosBtn = document.getElementById('see-bios-btn');
-      const backToHomeBtn = document.getElementById('back-to-home-btn'); // [NOVO] Pega o botão "Voltar"
+      const backToHomeBtn = document.getElementById('back-to-home-btn'); // Pega o botão "Voltar"
 
       function showPage(pageId) {
         // Esconde todas as páginas
@@ -435,7 +456,7 @@
         window.location.hash = 'biografias';
       });
 
-      // [NOVO] Adiciona clique ao botão "Voltar para Home"
+      // Adiciona clique ao botão "Voltar para Home"
       backToHomeBtn.addEventListener('click', () => {
         showPage('page-home');
         window.location.hash = 'home';
@@ -453,7 +474,6 @@
 
 
       // --- LÓGICA DO CARROSSEL ---
-      // (Esta lógica é a mesma que você forneceu, integrada ao sistema de navegação)
       const carouselContainer = document.getElementById("image-carousel");
       const carouselImages = [
           'imagens/c1.png',
@@ -509,7 +529,6 @@
 
 
       // --- LÓGICA DO JOGO DA MEMÓRIA ---
-      // (Esta lógica é a mesma que você forneceu, integrada ao sistema de navegação)
       const gameContainer = document.getElementById("game-container");
       const winMessage = document.getElementById("win-message");
       const restartButton = document.getElementById("restart");
