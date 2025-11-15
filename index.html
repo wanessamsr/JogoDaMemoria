@@ -26,8 +26,8 @@
 
     /* Estilos da Navegação */
     .nav-link {
-      /* Modificado para gray */
-      @apply text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors;
+      /* Modificado para text-white e hover:bg-gray-700 */
+      @apply text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors;
     }
     .nav-link.active {
       /* Modificado para gray-800 (contraste com bg-black) */
@@ -167,10 +167,11 @@
       <!-- Cabeçalho com descrição do jogo -->
       <header class="relative text-center py-8 md:py-12 bg-white shadow-md">
         
-        <!-- Modificado para gray -->
+        <!-- [BOTÃO REMOVIDO]
         <button id="back-to-home-btn" class="absolute top-8 left-4 md:left-8 bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors duration-300 text-sm md:text-base">
           &larr; Voltar
         </button>
+        -->
 
         <div class="max-w-4xl mx-auto px-4">
           <!-- Modificado para gray -->
@@ -406,7 +407,7 @@
       const pages = document.querySelectorAll('.page-section');
       const startGameBtn = document.getElementById('start-game-btn');
       const seeBiosBtn = document.getElementById('see-bios-btn');
-      const backToHomeBtn = document.getElementById('back-to-home-btn'); // Pega o botão "Voltar"
+      // const backToHomeBtn = document.getElementById('back-to-home-btn'); // [LINHA REMOVIDA]
 
       function showPage(pageId) {
         // Esconde todas as páginas
@@ -456,11 +457,11 @@
         window.location.hash = 'biografias';
       });
 
-      // Adiciona clique ao botão "Voltar para Home"
-      backToHomeBtn.addEventListener('click', () => {
-        showPage('page-home');
-        window.location.hash = 'home';
-      });
+      // [BLOCO REMOVIDO]
+      // backToHomeBtn.addEventListener('click', () => {
+      //   showPage('page-home');
+      //   window.location.hash = 'home';
+      // });
 
       // Verifica se há um hash na URL ao carregar
       const currentHash = window.location.hash.substring(1);
