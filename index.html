@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tecnologia e Resistência: Jogo da Memória</title>
   
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS para um design moderno e responsivo -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts para uma tipografia elegante -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -24,22 +24,11 @@
       display: none;
     }
 
-    /* Estilos da Navegação */
-    /* [REMOVIDO] - As classes @apply não funcionam com o script CDN. */
-    /* As classes foram movidas diretamente para as tags <a> no HTML. */
-    /*
-    .nav-link {
-      @apply text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors;
-    }
-    .nav-link.active {
-      @apply bg-gray-800 text-white;
-    }
-    */
-
     /* Animação de virar a carta */
     .card {
       perspective: 1000px;
     }
+
     .card-inner {
       position: relative;
       width: 100%;
@@ -47,9 +36,11 @@
       transform-style: preserve-3d;
       transition: transform 0.7s cubic-bezier(0.4, 0.0, 0.2, 1);
     }
+
     .card.flipped .card-inner {
       transform: rotateY(180deg);
     }
+
     .card-front,
     .card-back {
       position: absolute;
@@ -58,6 +49,7 @@
       backface-visibility: hidden;
       border-radius: 0.75rem;
     }
+
     .card-front {
       transform: rotateY(180deg);
     }
@@ -67,7 +59,6 @@
       transition: opacity 1.5s ease-in-out;
     }
 
-    /* Animação do Modal de Vitória */
     @keyframes fade-in-up {
       0% {
         opacity: 0;
@@ -83,16 +74,15 @@
     }
   </style>
 </head>
-<!-- Modificado para gray -->
 <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
 
-  <!-- Modificado para bg-black e adicionado sticky -->
+  <!-- Menu de Navegação Fixo -->
   <nav class="bg-black shadow-lg sticky top-0 z-40">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center h-16">
         <span class="text-white text-xl font-bold">Tecnologia e Resistência</span>
         <div class="flex space-x-4">
-          <!-- Classes do Tailwind aplicadas diretamente aqui -->
+          <!-- Links de navegação com classes de estilo aplicadas -->
           <a href="#home" class="nav-link text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-page="page-home">Home</a>
           <a href="#jogo" class="nav-link text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-page="page-jogo">Jogar</a>
           <a href="#biografias" class="nav-link text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-page="page-biografias">Biografias</a>
@@ -101,56 +91,59 @@
     </div>
   </nav>
 
+  <!-- Carrossel de Imagens Global -->
+  <div id="image-carousel" class="relative w-full h-64 md:h-80 overflow-hidden shadow-lg">
+    <!-- As imagens do carrossel serão injetadas aqui pelo JavaScript -->
+  </div>
+
+  <!-- Conteúdo Principal -->
   <main class="flex-grow">
     
     <!-- ======================= -->
-    <!-- ==== PÁGINA: HOME ==== -->
+    <!--      PÁGINA HOME        -->
     <!-- ======================= -->
-    <section id="page-home" class="page-section container mx-auto p-6 md:p-12">
-      <div class="bg-white rounded-xl shadow-xl overflow-hidden">
-        <div class="p-8 md:p-12">
-          <!-- Modificado para gray -->
-          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Bem-vindo(a)!</h1>
-          <p class="text-lg text-gray-600 mb-8">Este é o Jogo da Memória "Tecnologia e Resistência".</p>
+    <section id="page-home" class="page-section container mx-auto p-4 md:p-8">
+      <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+        <div class="p-6 md:p-12 text-center">
+          <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+            Tecnologia e Resistência
+          </h1>
+          <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+            Um Jogo da Memória dedicado a celebrar as personalidades negras que moldaram a história da tecnologia e da ciência.
+          </p>
 
-          <div class="space-y-8">
+          <!-- Seção de Introdução -->
+          <div class="max-w-4xl mx-auto text-left space-y-6 mb-12">
             <div>
-              <!-- Modificado para gray -->
-              <h2 class="text-2xl font-semibold text-gray-800 border-l-4 border-gray-500 pl-4">Sobre o Projeto</h2>
+              <h2 class="font-semibold text-2xl text-gray-800 border-b-2 border-gray-200 pb-2">Sobre o Projeto</h2>
               <p class="mt-3 text-gray-700 leading-relaxed">
-                Este projeto foi criado com o intuito de celebrar e dar visibilidade a personalidades negras
-                que fizeram contribuições fundamentais para os campos da ciência e tecnologia. Muitas vezes,
-                suas histórias e conquistas são invisibilizadas, e este jogo é uma forma interativa de
-                aprender e honrar seu legado.
+                Este projeto busca valorizar e dar visibilidade a figuras históricas e contemporâneas que atuaram e atuam na área da tecnologia. Reconhecemos suas contribuições fundamentais, que foram frequentemente invisibilizadas, promovendo uma reflexão crítica sobre estereótipos raciais e o apagamento histórico.
               </p>
             </div>
-            
             <div>
-              <!-- Modificado para gray -->
-              <h2 class="text-2xl font-semibold text-gray-800 border-l-4 border-gray-500 pl-4">Como Jogar</h2>
+              <h2 class="font-semibold text-2xl text-gray-800 border-b-2 border-gray-200 pb-2">Como Jogar</h2>
               <p class="mt-3 text-gray-700 leading-relaxed">
-                O jogo é um clássico jogo da memória. O seu objetivo é encontrar os pares de cartas.
-                Cada par é composto por:
-              </p>
-              <ul class="list-disc list-inside text-gray-700 mt-2 ml-4 space-y-1">
-                <li>A <strong>foto</strong> de uma personalidade.</li>
-                <li>Um <strong>resumo</strong> de sua biografia e principais feitos.</li>
-              </ul>
-              <p class="mt-3 text-gray-700 leading-relaxed">
-                Clique nas cartas para virá-las e tente memorizar suas posições para encontrar todos os 10 pares.
-                Ao final, você pode visitar a página "Biografias" para rever todos os resumos.
+                O objetivo é simples: combine a foto de uma personalidade com sua biografia correspondente.
+                <br>
+                1. Clique em "Começar a Jogar!".
+                <br>
+                2. Clique em duas cartas para virá-las.
+                <br>
+                3. Se a foto e a biografia formarem um par, elas permanecerão abertas.
+                <br>
+                4. Se não formarem, elas virarão de volta.
+                <br>
+                Encontre todos os 10 pares para vencer e conhecer mais sobre essas figuras incríveis!
               </p>
             </div>
           </div>
 
-          <!-- Container dos botões -->
-          <div class="text-center mt-12 flex flex-col sm:flex-row justify-center gap-4">
-            <!-- Modificado para gray-900 (preto suave) -->
-            <button id="start-game-btn" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-800 transition-colors duration-300">
+          <!-- Botões de Ação -->
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <button id="start-game-btn" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
               Começar a Jogar!
             </button>
-            <!-- Modificado para gray-700 (cinza escuro) -->
-            <button id="see-bios-btn" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-600 transition-colors duration-300">
+            <button id="see-bios-btn" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
               Ver Biografias
             </button>
           </div>
@@ -159,194 +152,171 @@
     </section>
 
     <!-- ======================= -->
-    <!-- ==== PÁGINA: JOGO ==== -->
+    <!--      PÁGINA JOGO        -->
     <!-- ======================= -->
-    <section id="page-jogo" class="page-section hidden">
-      <!-- Carrossel de Imagens -->
-      <div id="image-carousel" class="relative w-full h-64 md:h-80 overflow-hidden shadow-lg">
-        <!-- As imagens do carrossel serão injetadas aqui pelo JavaScript -->
-      </div>
-
+    <section id="page-jogo" class="page-section hidden container mx-auto p-4 md:p-8">
+      
       <!-- Cabeçalho com descrição do jogo -->
-      <header class="relative text-center py-8 md:py-12 bg-white shadow-md">
-        
-        <!-- [BOTÃO REMOVIDO]
-        <button id="back-to-home-btn" class="absolute top-8 left-4 md:left-8 bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors duration-300 text-sm md:text-base">
-          &larr; Voltar
-        </button>
-        -->
-
+      <header class="relative text-center py-8 md:py-12 bg-white shadow-md rounded-lg">
         <div class="max-w-4xl mx-auto px-4">
-          <!-- Modificado para gray -->
-          <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Tecnologia e Resistência</h1>
-          <p class="mt-2 text-lg text-gray-600">Um Jogo da Memória sobre Personalidades Negras</p>
-          
-          <!-- Modificado para gray -->
-          <div class="mt-6 text-left border-l-4 border-gray-400 pl-4 max-w-2xl mx-auto">
+          <div class="text-left border-l-4 border-gray-400 pl-4">
             <h2 class="font-semibold text-xl text-gray-800">Objetivo do Jogo</h2>
             <p class="mt-1 text-gray-700">
-              Combine a foto de uma personalidade com sua biografia correspondente para formar pares. O objetivo é encontrar todos os 10 pares.
+              Combine a foto de uma personalidade com sua biografia correspondente para formar pares. O objetivo é encontrar todos os 10 pares!
             </p>
           </div>
         </div>
       </header>
 
       <!-- Container principal do jogo -->
-      <div class="container mx-auto p-4 md:p-8 flex items-center justify-center">
-        <section id="game-container" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+      <main class="flex-grow flex items-center justify-center pt-8">
+        <div id="game-container" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
           <!-- As cartas serão geradas pelo JavaScript aqui -->
-        </section>
-      </div>
+        </div>
+      </main>
+
     </section>
 
-    <!-- ============================= -->
-    <!-- ==== PÁGINA: BIOGRAFIAS ==== -->
-    <!-- ============================= -->
-    <section id="page-biografias" class="page-section hidden container mx-auto p-6 md:p-12">
-      <!-- Modificado para gray -->
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">Conheça as Personalidades</h1>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- ======================= -->
+    <!--    PÁGINA BIOGRAFIAS    -->
+    <!-- ======================= -->
+    <section id="page-biografias" class="page-section hidden container mx-auto p-4 md:p-8">
+      <div class="bg-white shadow-xl rounded-lg p-6 md:p-12">
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-8 text-center border-b-2 border-gray-200 pb-4">
+          Biografias
+        </h1>
         
-        <!-- Personalidade 1 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <img src="imagens/1.png" alt="Enedina Alves Marques" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
-          <!-- Modificado para gray -->
-          <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Enedina Alves Marques</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">
-              Foi uma professora e a <strong>primeira engenheira negra do Brasil</strong>, e a primeira mulher a se formar em engenharia no Paraná (UFPR, 1945). Nascida em Curitiba, ela superou origens humildes, atuando como professora para pagar seus estudos. Como engenheira, seu trabalho de maior destaque foi no <strong>Plano Hidrelétrico do Paraná</strong>, sendo figura central na construção da <strong>Usina Capivari-Cachoeira</strong>. Em 1962, foi reconhecida por decreto governamental, recebendo proventos equivalentes ao salário de um juiz. Seu pioneirismo e resiliência a tornaram um símbolo, recebendo diversas homenagens póstumas, como a nomeação de uma rodovia no Paraná e um Doodle do Google.
-            </p>
+        <div class="space-y-12">
+          
+          <!-- Biografia 1 -->
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <img src="imagens/1.png" alt="Enedina Alves Marques" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
+            <div class="md:w-2/3 text-left">
+              <h2 class="text-3xl font-bold text-gray-800 mb-2">Enedina Alves Marques</h2>
+              <p class="text-gray-700 leading-relaxed">
+                Foi uma professora e a <strong>primeira engenheira negra do Brasil</strong>, e a primeira mulher a se formar em engenharia no Paraná (UFPR, 1945). Nascida em Curitiba, ela superou origens humildes, atuando como professora para pagar seus estudos. Como engenheira, seu trabalho de maior destaque foi no <strong>Plano Hidrelétrico do Paraná</strong>, sendo figura central na construção da <strong>Usina Capivari-Cachoeira</strong>. Em 1962, foi reconhecida por decreto governamental, recebendo proventos equivalentes ao salário de um juiz. Seu pioneirismo e resiliência a tornaram um símbolo, recebendo diversas homenagens póstumas, como a nomeação de uma rodovia no Paraná e um Doodle do Google.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Personalidade 2 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <img src="imagens/3.png" alt="Gerald A. Lawson" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
-          <!-- Modificado para gray -->
-          <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Gerald A. "Jerry" Lawson</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">
-              Engenheiro eletrônico americano e um dos principais <strong>pioneiros dos videogames modernos</strong>. Trabalhando na Fairchild Semiconductor, Lawson liderou a equipe que criou o conceito de <strong>videogame comercial com cartucho de videogame em ROM removível</strong>. Essa invenção, implementada no console <strong>Fairchild Channel F (1976)</strong>, revolucionou a indústria, permitindo a troca de jogos e estabelecendo o modelo de negócios de software. Lawson também desenvolveu um dos primeiros jogos de arcade conduzidos por microprocessador, o <strong>Demolition Derby</strong>. Em vida e postumamente, recebeu diversas homenagens, incluindo a nomeação como herói da indústria pela IGDA. Seu legado continua através do Fundo Gerald A. Lawson, que apoia estudantes negros e indígenas na área de videogames.
-            </p>
+
+          <!-- Biografia 2 -->
+          <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
+            <img src="imagens/3.png" alt="Gerald A. 'Jerry' Lawson" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
+            <div class="md:w-2/3 text-left">
+              <h2 class="text-3xl font-bold text-gray-800 mb-2">Gerald A. "Jerry" Lawson</h2>
+              <p class="text-gray-700 leading-relaxed">
+                Engenheiro eletrônico americano e um dos principais <strong>pioneiros dos videogames modernos</strong>. Trabalhando na Fairchild Semiconductor, Lawson <strong>liderou a equipe que criou o conceito de videogame comercial com software em cartucho de ROM removível</strong>. Essa invenção, implementada no console <strong>Fairchild Channel F (1976)</strong>, revolucionou a indústria, permitindo a troca de jogos e estabelecendo o modelo de negócios de software. Lawson também desenvolveu um dos primeiros jogos de arcade conduzidos por microprocessador, o <strong>Demolition Derby</strong>. Em vida e postumamente, recebeu diversas homenagens, incluindo a nomeação como herói da indústria pela IGDA. Seu legado continua através do Fundo Gerald A. Lawson, que apoia estudantes negros e indígenas na área de videogames.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Personalidade 3 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <img src="imagens/5.png" alt="Hadiyah-Nicole Green" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
-          <!-- Modificado para gray -->
-          <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Hadiyah-Nicole Green</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">
-              É uma física médica americana, pioneira por ser uma das poucas mulheres negras doutoras em física no país. Seu trabalho de destaque é o desenvolvimento de um inovador <strong>tratamento contra o câncer que utiliza nanopartículas ativadas por laser</strong> para destruir seletivamente células cancerosas, minimizando os efeitos colaterais. Motivada por perdas familiares, ela fundou a <strong>Fundação Ora Lee Smith</strong> para tornar tratamentos eficazes e acessíveis. Após ser recrutada pela Morehouse School of Medicine e receber uma bolsa de US$ 1,1 milhão para sua pesquisa, ela foi recentemente indicada para o <strong>Presidential Lifetime Achievement Award</strong> por suas contribuições científicas e serviço comunitário, sendo um modelo para a juventude negra e defensora da ciência.
-            </p>
+
+          <!-- Biografia 3 -->
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <img src="imagens/5.png" alt="Hadiyah-Nicole Green" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
+            <div class="md:w-2/3 text-left">
+              <h2 class="text-3xl font-bold text-gray-800 mb-2">Hadiyah-Nicole Green</h2>
+              <p class="text-gray-700 leading-relaxed">
+                É uma física médica americana, pioneira por ser uma das poucas mulheres negras doutoras em física no país. Seu trabalho de destaque é o desenvolvimento de um inovador <strong>tratamento contra o câncer que utiliza nanopartículas ativadas por laser</strong> para destruir seletivamente células cancerosas, minimizando os efeitos colaterais. Motivada por perdas familiares, ela fundou a <strong>Fundação Ora Lee Smith</strong> para tornar tratamentos eficazes e acessíveis. Após ser recrutada pela Morehouse School of Medicine e receber uma bolsa de US$ 1,1 milhão para sua pesquisa, ela foi recentemente indicada para o <strong>Presidential Lifetime Achievement Award</strong> por suas contribuições científicas e serviço comunitário, sendo um modelo para a juventude negra e defensora da ciência.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Personalidade 4 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <img src="imagens/7.png" alt="Jane Cooke Wright" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
-          <!-- Modificado para gray -->
-          <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Jane Cooke Wright</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">
-              Foi uma oncologista e cirurgiã americana, pioneira com grandes <strong>contribuições para a quimioterapia</strong>. Ela é creditada por desenvolver técnicas de <strong>cultura de tecidos humanos</strong> para testar os efeitos de drogas em células cancerosas, um avanço que substituiu o uso de cobaias. Wright foi pioneira no uso do medicamento <strong>Metotrexato</strong> no tratamento de câncer de mama e de pele (micose fungoide), e focou na combinação de quimioterápicos para aumentar a eficácia e reduzir efeitos colaterais. Sucedendo seu pai na direção do Centro de Pesquisa do Câncer do Hospital do Harlem, Wright co-fundou a <strong>Sociedade de Oncologia Clínica Americana (ASCO)</strong> em 1964. Ela também trabalhou no Conselho Nacional do Câncer (indicada pelo Presidente Lyndon Johnson) e liderou missões médicas internacionais na África e Europa.
-            </p>
+
+          <!-- Biografia 4 -->
+          <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
+            <img src="imagens/7.png" alt="Jane Cooke Wright" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
+            <div class="md:w-2/3 text-left">
+              <h2 class="text-3xl font-bold text-gray-800 mb-2">Jane Cooke Wright</h2>
+              <p class="text-gray-700 leading-relaxed">
+                Foi uma oncologista e cirurgiã americana, pioneira com grandes <strong>contribuições para a quimioterapia</strong>. Ela é creditada por desenvolver <strong>técnicas de cultura de tecidos humanos</strong> para testar os efeitos de drogas em células cancerosas, um avanço que substituiu o uso de cobaias. Wright foi pioneira no uso do medicamento <strong>Metotrexato</strong> no tratamento de câncer de mama e de pele (micose fungoide), e focou na combinação de quimioterápicos para aumentar a eficácia e reduzir efeitos colaterais. Sucedendo seu pai na direção do Centro de Pesquisa do Câncer do Hospital do Harlem, Wright co-fundou a <strong>Sociedade de Oncologia Clínica Americana (ASCO)</strong> em 1964. Ela também trabalhou no Conselho Nacional do Câncer (indicada pelo Presidente Lyndon Johnson) e liderou missões médicas internacionais na África e Europa.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Personalidade 5 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <img src="imagens/9.png" alt="Janice Wilkins" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
-          <!-- Modificado para gray -->
-          <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Janice Wilkins</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">
-              É ex-Vice-Presidente de Finanças e <strong>Diretora de Auditoria Interna da Intel Corporation</strong>, onde trabalhou por 29 anos, gerenciando equipes globais de auditoria, investigações, ética e conformidade. Aposentando-se em 2010. Atualmente, ela atua como <strong>Diretora da American States Water</strong>, trazendo vasta experiência em contabilidade, finanças, auditoria interna e ética. É formada em Contabilidade (Xavier University) e possui MBA (Golden Gate University). Wilkins foi reconhecida pela Ebony Magazine como uma das afro-americanas de <strong>maior destaque no mercado corporativo</strong>. Ela também atua ativamente em conselhos universitários e organizações cívicas, como a Links, Inc., promovendo atividades educacionais e culturais.
-            </p>
+
+          <!-- Biografia 5 -->
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <img src="imagens/9.png" alt="Janice Wilkins" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
+            <div class="md:w-2/3 text-left">
+              <h2 class="text-3xl font-bold text-gray-800 mb-2">Janice Wilkins</h2>
+              <p class="text-gray-700 leading-relaxed">
+                É ex-Vice-Presidente de Finanças e <strong>Diretora de Auditoria Interna da Intel Corporation</strong>, onde trabalhou por 29 anos, gerenciando equipes globais de auditoria, investigações, ética e conformidade. Aposentando-se em 2010. Atualmente, ela atua como <strong>Diretora da American States Water</strong>, trazendo vasta experiência em contabilidade, finanças, auditoria interna e ética. É formada em Contabilidade (Xavier University) e possui MBA (Golden Gate University). Wilkins foi reconhecida pela Ebony Magazine como uma das afro-americanas de <strong>maior destaque no mercado corporativo</strong>. Ela também atua ativamente em conselhos universitários e organizações cívicas, como a Links, Inc., promovendo atividades educacionais e culturais.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Personalidade 6 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <img src="imagens/11.png" alt="Mark Dean" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
-          <!-- Modificado para gray -->
-          <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Mark Dean</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">
-              É um inventor e engenheiro de computação americano, fundamental no desenvolvimento do <strong>computador pessoal (PC) da IBM</strong>. Seus principais feitos incluem ser <strong>co-criador do IBM PC (1981)</strong> e deter três das nove patentes originais. Ele também desenvolveu o <strong>barramento ISA</strong>, crucial para a expansão do PC, e liderou a equipe que projetou o <strong>primeiro chip de processador de um gigahertz</strong> (1999). Dean foi o <strong>primeiro IBM Fellow afro-americano</strong> (1995), a maior honraria técnica da empresa. Com mais de 20 patentes, ele também contribuiu para o monitor colorido. Após se aposentar da IBM em 2013, tornou-se professor na Universidade do Tennessee.
-            </p>
+
+          <!-- Biografia 6 -->
+          <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
+            <img src="imagens/11.png" alt="Mark Dean" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
+            <div class="md:w-2/3 text-left">
+              <h2 class="text-3xl font-bold text-gray-800 mb-2">Mark Dean</h2>
+              <p class="text-gray-700 leading-relaxed">
+                É um inventor e engenheiro de computação americano, fundamental no desenvolvimento do <strong>computador pessoal (PC) da IBM</strong>. Seus principais feitos incluem ser <strong>co-criador do IBM PC (1981)</strong> e deter três das nove patentes originais. Ele também desenvolveu o <strong>barramento ISA</strong>, crucial para a expansão do PC, e liderou a equipe que projetou o <strong>primeiro chip de processador de um gigahertz (1999)</strong>. Dean foi o <strong>primeiro IBM Fellow afro-americano (1995)</strong>, a maior honraria técnica da empresa. Com mais de 20 patentes, ele também contribuiu para o monitor colorido. Após se aposentar da IBM em 2013, tornou-se professor na Universidade do Tennessee.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Personalidade 7 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <img src="imagens/13.png" alt="Otis Boykin" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
-          <!-- Modificado para gray -->
-          <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Otis Boykin</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">
-              Foi um influente inventor e engenheiro eletrônico americano, notável por suas contribuições em resistores e dispositivos médicos. Seu trabalho mais famoso foi o desenvolvimento de uma <strong>unidade de controle para o marca-passo cardíaco artificial</strong>, uma invenção inspirada pela morte de sua mãe por insuficiência cardíaca. Ele também patenteou um <strong>resistor elétrico aprimorado</strong> e um <strong>resistor variável</strong> usados em diversas tecnologias cruciais. Suas invenções foram amplamente aplicadas em áreas como: <strong>Computação (IBM), Orientação de mísseis e Marca-passos</strong>. Boykin patenteou um total de 26 dispositivos. Ele estudou na Fisk University e trabalhou com mentores em Chicago antes de abrir sua própria empresa de consultoria, deixando um legado essencial na eletrônica moderna.
-            </p>
+
+          <!-- Biografia 7 -->
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <img src="imagens/13.png" alt="Otis Boykin" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
+            <div class="md:w-2/3 text-left">
+              <h2 class="text-3xl font-bold text-gray-800 mb-2">Otis Boykin</h2>
+              <p class="text-gray-700 leading-relaxed">
+                Foi um influente inventor e engenheiro eletrônico americano, notável por suas contribuições em resistores e dispositivos médicos. Seu trabalho mais famoso foi o desenvolvimento de uma <strong>unidade de controle para o marca-passo cardíaco artificial</strong>, uma invenção inspirada pela morte de sua mãe por insuficiência cardíaca. Ele também patenteou um <strong>resistor elétrico aprimorado</strong> e um <strong>resistor variável</strong> usados em diversas tecnologias cruciais. Suas invenções foram amplamente aplicadas em áreas como: <strong>Computação (IBM), Orientação de mísseis e Marca-passos</strong>. Boykin patenteou um total de 26 dispositivos. Ele estudou na Fisk University e trabalhou com mentores em Chicago antes de abrir sua própria empresa de consultoria, deixando um legado essencial na eletrônica moderna.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Personalidade 8 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <img src="imagens/15.png" alt="Patricia Bath" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
-          <!-- Modificado para gray -->
-          <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Patricia Bath</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">
-              Foi uma oftalmologista, inventora e acadêmica pioneira. Ela foi a <strong>primeira mulher negra médica a receber uma patente para um propósito médico</strong> nos EUA, detendo cinco patentes relacionadas à cirurgia ocular. Seu principal invento é a <strong>sonda Laserphaco (1988)</strong>, um dispositivo que usa laser para dissolver e remover cataratas de forma rápida e quase indolor, restaurando a visão de pacientes cegos. Bath foi uma "primeira": foi a primeira mulher do Instituto Jules Stein e a primeira mulher a dirigir um programa de residência em Oftalmologia nos EUA. Além disso, ela fundou o <strong>Instituto Americano para a Prevenção da Cegueira</strong> e foi pioneira na disciplina de "oftalmologia comunitária", após observar a alta prevalência de cegueira e glaucoma em populações carentes.
-            </p>
+
+          <!-- Biografia 8 -->
+          <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
+            <img src="imagens/15.png" alt="Patricia Bath" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
+            <div class="md:w-2/3 text-left">
+              <h2 class="text-3xl font-bold text-gray-800 mb-2">Patricia Bath</h2>
+              <p class="text-gray-700 leading-relaxed">
+                Foi uma oftalmologista, inventora e acadêmica pioneira. Ela foi a <strong>primeira mulher negra médica a receber uma patente para um propósito médico</strong> nos EUA, detendo cinco patentes relacionadas à cirurgia ocular. Seu principal invento é a <strong>sonda Laserphaco (1988)</strong>, um dispositivo que usa laser para dissolver e remover cataratas de forma rápida e quase indolor, restaurando a visão de pacientes cegos. Bath foi uma "primeira": foi a primeira mulher do Instituto Jules Stein e a primeira mulher a dirigir um programa de residência em Oftalmologia nos EUA. Além disso, ela fundou o <strong>Instituto Americano para a Prevenção da Cegueira</strong> e foi pioneira na disciplina de "oftalmologia comunitária", após observar a alta prevalência de cegueira e glaucoma em populações carentes.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Personalidade 9 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <img src="imagens/17.png" alt="Phillip Emeagwali" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
-          <!-- Modificado para gray -->
-          <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Phillip Emeagwali</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">
-              É um cientista da computação nigeriano, <strong>pioneiro da computação paralela</strong>, tecnologia que processa bilhões de dados simultaneamente. Superando a Guerra Civil Nigeriana e a pobreza, ele se formou em matemática e engenharia nos EUA. Sua grande inovação ocorreu no doutorado, ao buscar resolver o problema de prever o fluxo de petróleo: ele se <strong>inspirou em colmeias de abelhas</strong> para criar um algoritmo que conectava 65.000 processadores, alcançando um processamento 3.1 bilhões de vezes mais rápido. Em 1989, ele <strong>venceu o Prêmio Gordon Bell</strong> (o "Nobel da Computação"). Seu trabalho pavimentou o caminho para a previsão do tempo precisa, análise genética e streaming de vídeo. Apesar de enfrentar ceticismo e polêmicas, seu legado é celebrar a inovação que nasce da persistência e inspirar jovens africanos na ciência.
-            </p>
+
+          <!-- Biografia 9 -->
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <img src="imagens/17.png" alt="Phillip Emeagwali" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
+            <div class="md:w-2/3 text-left">
+              <h2 class="text-3xl font-bold text-gray-800 mb-2">Phillip Emeagwali</h2>
+              <p class="text-gray-700 leading-relaxed">
+                É um cientista da computação nigeriano, <strong>pioneiro da computação paralela</strong>, tecnologia que processa bilhões de dados simultaneamente. Superando a Guerra Civil Nigeriana e a pobreza, ele se formou em matemática e engenharia nos EUA. Sua grande inovação ocorreu no doutorado, ao buscar resolver o problema de prever o fluxo de petróleo: ele se <strong>inspirou em colmeias de abelhas</strong> para criar um algoritmo que conectava 65.000 processadores, alcançando um processamento 3.1 bilhões de vezes mais rápido. Em 1989, ele <strong>venceu o Prêmio Gordon Bell</strong> (o "Nobel da Computação"). Seu trabalho pavimentou o caminho para a previsão do tempo precisa, análise genética e streaming de vídeo. Apesar de enfrentar ceticismo e polêmicas, seu legado é celebrar a inovação que nasce da persistência e inspirar jovens africanos na ciência.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Personalidade 10 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <img src="imagens/19.png" alt="Sonia Guimarães" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
-          <!-- Modificado para gray -->
-          <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Sonia Guimarães</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">
-              É uma física e professora brasileira, notável por ser a <strong>primeira mulher negra doutora em Física no Brasil</strong> e a <strong>primeira mulher negra a lecionar no Instituto Tecnológico de Aeronáutica (ITA)</strong>, onde ingressou em 1993. Especialista em semicondutores (com doutorado pela Universidade de Manchester), ela é uma <strong>defensora ativa da inclusão de mulheres e negros</strong> nas áreas de Exatas e no ambiente acadêmico, combatendo o racismo e a desigualdade de gênero. Seu impacto e pioneirismo foram reconhecidos com a <strong>Medalha Santos Dumont</strong> e a eleição como uma das <strong>100 pessoas mais inovadoras da América Latina em 2023</strong>. Sua biografia é um símbolo de superação e ativismo na ciência brasileira.
-            </p>
+
+          <!-- Biografia 10 -->
+          <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
+            <img src="imagens/19.png" alt="Sonia Guimarães" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
+            <div class="md:w-2/3 text-left">
+              <h2 class="text-3xl font-bold text-gray-800 mb-2">Sonia Guimarães</h2>
+              <p class="text-gray-700 leading-relaxed">
+                É uma física e professora brasileira, notável por ser a <strong>primeira mulher negra doutora em Física no Brasil</strong> e a <strong>primeira mulher negra a lecionar no Instituto Tecnológico de Aeronáutica (ITA)</strong>, onde ingressou em 1993. Especialista em semicondutores (com doutorado pela Universidade de Manchester), ela é uma <strong>defensora ativa da inclusão de mulheres e negros</strong> nas áreas de Exatas e no ambiente acadêmico, combatendo o racismo e a desigualdade de gênero. Seu impacto e pioneirismo foram reconhecidos com a <strong>Medalha Santos Dumont</strong> e a eleição como uma das <strong>100 pessoas mais inovadoras da América Latina em 2023</strong>. Sua biografia é um símbolo de superação e ativismo na ciência brasileira.
+              </p>
+            </div>
           </div>
+
         </div>
-        
       </div>
     </section>
 
   </main>
 
-  <!-- Mensagem de vitória (Modal) - fora do main para sobrepor tudo -->
+  <!-- Mensagem de vitória (Modal) -->
   <div id="win-message" class="hidden fixed inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center text-center p-4 z-50">
-    <!-- Modificado para gray -->
     <div class="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full transform transition-all scale-95 opacity-0 animate-fade-in-up">
       <h2 class="text-3xl font-bold text-gray-900">Parabéns!</h2>
       <p class="mt-2 text-gray-600">Você encontrou todos os pares e completou o jogo!</p>
-      <button id="restart" class="mt-6 bg-gray-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+      <button id="restart" class="mt-6 bg-gray-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
         Jogar Novamente
       </button>
     </div>
   </div>
   
-  <!-- Rodapé (Já estava bg-black) -->
-  <footer class="text-center py-10 bg-black text-gray-300 mt-auto">
+  <!-- Rodapé -->
+  <footer class="text-center py-10 bg-black text-slate-300 mt-auto">
     <div class="container mx-auto px-4">
         <h3 class="text-2xl font-semibold mb-6">Contatos dos Desenvolvedores</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -354,10 +324,10 @@
             <div>
                 <p class="font-bold text-lg text-white">Isabela Fernanda</p>
                 <div class="flex justify-center gap-4 mt-2">
-                    <a href="#" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Isabela Fernanda">
+                    <a href="https://github.com/isabellafernandarf" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Isabela Fernanda">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                     </a>
-                    <a href="#" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram de Isabela Fernanda">
+                    <a href="https://www.instagram.com/isabellafernandarf?igsh=MW9vcm05YnNwcjJoYg==" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram de Isabela Fernanda">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.136 0-3.868 1.732-3.868 3.868 0 2.136 1.732 3.868 3.868 3.868 2.136 0 3.868-1.732 3.868-3.868 0-2.136-1.732-3.868-3.868-3.868zm0 6.354c-1.37 0-2.485-1.115-2.485-2.485s1.115-2.485 2.485-2.485 2.485 1.115 2.485 2.485-1.115 2.485-2.485 2.485zm4.908-6.408c-.76 0-1.377-.618-1.377-1.377s.618-1.377 1.377-1.377 1.377.618 1.377 1.377-.617 1.377-1.377 1.377z" clip-rule="evenodd" /></svg>
                     </a>
                 </div>
@@ -366,10 +336,10 @@
             <div>
                 <p class="font-bold text-lg text-white">Maria Luiza</p>
                 <div class="flex justify-center gap-4 mt-2">
-                    <a href="#" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Maria Luiza">
+                    <a href="https://github.com/wanessamsr" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Maria Luiza">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                     </a>
-                    <a href="#" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram de Maria Luiza">
+                    <a href="https://www.instagram.com/marialuizafnds?igsh=ODJmZ2hlMWM0azRw" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram de Maria Luiza">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.136 0-3.868 1.732-3.868 3.868 0 2.136 1.732 3.868 3.868 3.868 2.136 0 3.868-1.732 3.868-3.868 0-2.136-1.732-3.868-3.868-3.868zm0 6.354c-1.37 0-2.485-1.115-2.485-2.485s1.115-2.485 2.485-2.485 2.485 1.115 2.485 2.485-1.115 2.485-2.485 2.485zm4.908-6.408c-.76 0-1.377-.618-1.377-1.377s.618-1.377 1.377-1.377 1.377.618 1.377 1.377-.617 1.377-1.377 1.377z" clip-rule="evenodd" /></svg>
                     </a>
                 </div>
@@ -378,10 +348,10 @@
             <div>
                 <p class="font-bold text-lg text-white">Matheus Rodrigues</p>
                 <div class="flex justify-center gap-4 mt-2">
-                    <a href="#" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Matheus Rodrigues">
+                    <a href="https://github.com/wanessamsr" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Matheus Rodrigues">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                     </a>
-                    <a href="#" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram de Matheus Rodrigues">
+                    <a href="https://www.instagram.com/matheusroalv?igsh=MTFkZzI1MTZwMDM3cQ==" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram de Matheus Rodrigues">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.136 0-3.868 1.732-3.868 3.868 0 2.136 1.732 3.868 3.868 3.868 2.136 0 3.868-1.732 3.868-3.868 0-2.136-1.732-3.868-3.868-3.868zm0 6.354c-1.37 0-2.485-1.115-2.485-2.485s1.115-2.485 2.485-2.485 2.485 1.115 2.485 2.485-1.115 2.485-2.485 2.485zm4.908-6.408c-.76 0-1.377-.618-1.377-1.377s.618-1.377 1.377-1.377 1.377.618 1.377 1.377-.617 1.377-1.377 1.377z" clip-rule="evenodd" /></svg>
                     </a>
                 </div>
@@ -390,10 +360,10 @@
             <div>
                 <p class="font-bold text-lg text-white">Wanessa Martins</p>
                 <div class="flex justify-center gap-4 mt-2">
-                    <a href="#" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Wanessa Martins">
+                    <a href="https://github.com/wanessamsr" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Wanessa Martins">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                     </a>
-                    <a href="#" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram de Wanessa Martins">
+                    <a href="https://www.instagram.com/wanessamsr?igsh=MWpwd2ViYjUzNnd1ZQ%3D%3D&utm_source=qr" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram de Wanessa Martins">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.136 0-3.868 1.732-3.868 3.868 0 2.136 1.732 3.868 3.868 3.868 2.136 0 3.868-1.732 3.868-3.868 0-2.136-1.732-3.868-3.868-3.868zm0 6.354c-1.37 0-2.485-1.115-2.485-2.485s1.115-2.485 2.485-2.485 2.485 1.115 2.485 2.485-1.115 2.485-2.485 2.485zm4.908-6.408c-.76 0-1.377-.618-1.377-1.377s.618-1.377 1.377-1.377 1.377.618 1.377 1.377-.617 1.377-1.377 1.377z" clip-rule="evenodd" /></svg>
                     </a>
                 </div>
@@ -405,19 +375,18 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-      // --- LÓGICA DE NAVEGAÇÃO ---
+      // --- LÓGICA DA NAVEGAÇÃO ---
       const navLinks = document.querySelectorAll('.nav-link');
       const pages = document.querySelectorAll('.page-section');
       const startGameBtn = document.getElementById('start-game-btn');
       const seeBiosBtn = document.getElementById('see-bios-btn');
-      // const backToHomeBtn = document.getElementById('back-to-home-btn'); // [LINHA REMOVIDA]
 
       function showPage(pageId) {
         // Esconde todas as páginas
         pages.forEach(page => {
           page.classList.add('hidden');
         });
-        
+
         // Mostra a página solicitada
         const activePage = document.getElementById(pageId);
         if (activePage) {
@@ -435,36 +404,33 @@
         
         // Rola para o topo da página
         window.scrollTo(0, 0);
+
+        // Inicia o jogo apenas se estivermos na página do jogo
+        if (pageId === 'page-jogo' && !gameInitialized) {
+          initializeGame();
+        }
       }
 
-      // Adiciona clique aos links da navegação
+      // Adiciona eventos aos links de navegação
       navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
           const pageId = link.dataset.page;
           showPage(pageId);
-          // Atualiza a URL hash para navegação
-          window.location.hash = link.hash;
+          window.location.hash = pageId.replace('page-', '');
         });
       });
-      
-      // Adiciona clique ao botão "Começar a Jogar"
+
+      // Adiciona eventos aos botões da Home
       startGameBtn.addEventListener('click', () => {
         showPage('page-jogo');
         window.location.hash = 'jogo';
       });
 
-      // Adiciona clique ao botão "Ver Biografias"
       seeBiosBtn.addEventListener('click', () => {
         showPage('page-biografias');
         window.location.hash = 'biografias';
       });
-
-      // [BLOCO REMOVIDO]
-      // backToHomeBtn.addEventListener('click', () => {
-      //   showPage('page-home');
-      //   window.location.hash = 'home';
-      // });
 
       // Verifica se há um hash na URL ao carregar
       const currentHash = window.location.hash.substring(1);
@@ -473,63 +439,60 @@
       } else if (currentHash === 'biografias') {
         showPage('page-biografias');
       } else {
-        showPage('page-home'); // Página padrão
+        showPage('page-home');
       }
-
 
       // --- LÓGICA DO CARROSSEL ---
       const carouselContainer = document.getElementById("image-carousel");
-      const carouselImages = [
-          'imagens/c1.png',
-          'imagens/c2.png'
-      ];
-      let currentImageIndex = 0;
-      let carouselInterval;
+      let carouselInitialized = false;
 
-      function startCarousel() {
-        if (!carouselContainer) return; // Não faz nada se o carrossel não estiver na página
-        
-        // Limpa intervalo anterior se existir
-        if (carouselInterval) {
-          clearInterval(carouselInterval);
+      function initializeCarousel() {
+        if (carouselInitialized) return;
+        carouselInitialized = true;
+
+        const carouselImages = [
+            'imagens/c1.png',
+            'imagens/c2.png'
+        ];
+        let currentImageIndex = 0;
+
+        // Pré-carrega as imagens do carrossel para uma transição mais suave
+        carouselImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        function showNextImage() {
+            if (!carouselContainer) return; // Garante que o container exista
+            // Remove a imagem antiga
+            const oldImage = carouselContainer.querySelector('img');
+            if (oldImage) {
+                oldImage.style.opacity = '0';
+                setTimeout(() => oldImage.remove(), 1500); // Remove após a transição
+            }
+            
+            // Cria e exibe a nova imagem
+            const newImg = document.createElement('img');
+            newImg.src = carouselImages[currentImageIndex];
+            newImg.className = 'carousel-item absolute top-0 left-0 w-full h-full object-cover opacity-0';
+            carouselContainer.appendChild(newImg);
+            
+            // Força o navegador a aplicar a classe antes de mudar a opacidade
+            setTimeout(() => {
+                newImg.style.opacity = '1';
+            }, 50);
+
+            // Atualiza o índice para a próxima imagem
+            currentImageIndex = (currentImageIndex + 1) % carouselImages.length;
         }
-        
-        // Pré-carrega as imagens
-        carouselImages.forEach(src => { new Image().src = src; });
-        
-        showNextImage(); // Mostra a primeira imagem imediatamente
-        
-        carouselInterval = setInterval(showNextImage, 5000); // Muda a cada 5 segundos
-      }
 
-      function showNextImage() {
-        if (!carouselContainer) return;
-        
-        // Remove a imagem antiga
-        const oldImage = carouselContainer.querySelector('img');
-        if (oldImage) {
-            oldImage.style.opacity = '0';
-            setTimeout(() => { if (oldImage.parentElement) oldImage.remove() }, 1500);
-        }
-        
-        // Cria e exibe a nova imagem
-        const newImg = document.createElement('img');
-        newImg.src = carouselImages[currentImageIndex];
-        newImg.className = 'carousel-item absolute top-0 left-0 w-full h-full object-cover opacity-0';
-        carouselContainer.appendChild(newImg);
-        
-        setTimeout(() => { newImg.style.opacity = '1'; }, 50);
-
-        currentImageIndex = (currentImageIndex + 1) % carouselImages.length;
+        // Inicia o carrossel
+        showNextImage();
+        setInterval(showNextImage, 5000); // Muda a imagem a cada 5 segundos
       }
       
-      // Inicia o carrossel apenas se estiver na página do jogo
-      if (document.getElementById('page-jogo') && !document.getElementById('page-jogo').classList.contains('hidden')) {
-         startCarousel();
-      }
-      // Adiciona lógica para (re)iniciar o carrossel ao navegar para a página do jogo
-      document.querySelector('a[data-page="page-jogo"]').addEventListener('click', startCarousel);
-      startGameBtn.addEventListener('click', startCarousel);
+      // Inicia o carrossel imediatamente
+      initializeCarousel();
 
 
       // --- LÓGICA DO JOGO DA MEMÓRIA ---
@@ -542,16 +505,10 @@
       let matchedPairs = 0;
       let canFlip = true;
       const totalPairs = 10;
-      let gameInitialized = false;
+      let gameInitialized = false; // Flag para controlar inicialização
 
       function createCards() {
-          if (!gameContainer) return;
-          gameContainer.innerHTML = ""; // Limpa o tabuleiro
-          cards = [];
-          flippedCards = [];
-          matchedPairs = 0;
-          canFlip = true;
-          
+          gameContainer.innerHTML = ""; // Limpa o container
           const pairs = [];
           for (let i = 1; i <= 20; i += 2) {
               pairs.push([`imagens/${i}.png`, `imagens/${i + 1}.png`]);
@@ -574,7 +531,6 @@
               gameContainer.appendChild(card);
               cards.push(card);
           });
-          gameInitialized = true;
       }
       
       function flipCard(card, img) {
@@ -622,28 +578,23 @@
           modalContent.classList.add('scale-95', 'opacity-0');
           setTimeout(() => {
               winMessage.classList.add("hidden");
-              createCards(); // Recria o jogo
+              // Não limpa o gameContainer, apenas re-cria as cartas
+              cards = [];
+              flippedCards = [];
+              matchedPairs = 0;
+              canFlip = true;
+              createCards(); // Recria as cartas
           }, 300);
       }
 
-      restartButton.addEventListener("click", restartGame);
-      
-      // Inicia o jogo apenas se estiver na página do jogo
-      if (currentHash === 'jogo') {
+      // Função para inicializar o jogo
+      function initializeGame() {
+        if (gameInitialized) return;
+        gameInitialized = true;
+        
+        restartButton.addEventListener("click", restartGame);
         createCards();
       }
-      
-      // Adiciona lógica para iniciar o jogo ao navegar para a página
-      document.querySelector('a[data-page="page-jogo"]').addEventListener('click', () => {
-        if (!gameInitialized) {
-          createCards();
-        }
-      });
-      startGameBtn.addEventListener('click', () => {
-         if (!gameInitialized) {
-          createCards();
-        }
-      });
 
     });
   </script>
