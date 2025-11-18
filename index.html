@@ -5,26 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tecnologia e Resistência: Jogo da Memória</title>
   
-  <!-- Tailwind CSS para um design moderno e responsivo -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts para uma tipografia elegante -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* Estilos personalizados */
     body {
       font-family: 'Poppins', sans-serif;
     }
 
-    /* Esconde seções de página inativas */
     .page-section.hidden {
       display: none;
     }
 
-    /* Animação de virar a carta */
     .card {
       perspective: 1000px;
     }
@@ -54,7 +49,6 @@
       transform: rotateY(180deg);
     }
 
-    /* Estilos para o carrossel */
     .carousel-item {
       transition: opacity 1.5s ease-in-out;
     }
@@ -76,13 +70,11 @@
 </head>
 <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
 
-  <!-- Menu de Navegação Fixo -->
   <nav class="bg-black shadow-lg sticky top-0 z-40">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center h-16">
         <span class="text-white text-xl font-bold">Tecnologia e Resistência</span>
         <div class="flex space-x-4">
-          <!-- Links de navegação com classes de estilo aplicadas -->
           <a href="#home" class="nav-link text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-page="page-home">Home</a>
           <a href="#jogo" class="nav-link text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-page="page-jogo">Jogar</a>
           <a href="#biografias" class="nav-link text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-page="page-biografias">Biografias</a>
@@ -91,18 +83,11 @@
     </div>
   </nav>
 
-  <!-- Carrossel de Imagens Global -->
   <div id="image-carousel" class="relative w-full h-64 md:h-80 overflow-hidden shadow-lg">
-    <!-- As imagens do carrossel serão injetadas aqui pelo JavaScript -->
   </div>
 
-  <!-- Conteúdo Principal -->
   <main class="flex-grow">
-    
-    <!-- ======================= -->
-    <!--      PÁGINA HOME        -->
-    <!-- ======================= -->
-    <section id="page-home" class="page-section container mx-auto p-4 md:p-8">
+      <section id="page-home" class="page-section container mx-auto p-4 md:p-8">
       <div class="bg-white shadow-xl rounded-lg overflow-hidden">
         <div class="p-6 md:p-12 text-center">
           <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -112,7 +97,6 @@
             Um Jogo da Memória dedicado a celebrar as personalidades negras que moldaram a história da tecnologia e da ciência.
           </p>
 
-          <!-- Seção de Introdução -->
           <div class="max-w-4xl mx-auto text-left space-y-6 mb-12">
             <div>
               <h2 class="font-semibold text-2xl text-gray-800 border-b-2 border-gray-200 pb-2">Sobre o Projeto</h2>
@@ -137,7 +121,6 @@
             </div>
           </div>
 
-          <!-- Botões de Ação -->
           <div class="flex flex-col sm:flex-row justify-center gap-4">
             <button id="start-game-btn" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
               Começar a Jogar!
@@ -149,13 +132,9 @@
         </div>
       </div>
     </section>
-
-    <!-- ======================= -->
-    <!--      PÁGINA JOGO        -->
-    <!-- ======================= -->
+    
     <section id="page-jogo" class="page-section hidden container mx-auto p-4 md:p-8">
       
-      <!-- Cabeçalho com descrição do jogo -->
       <header class="relative text-center py-8 md:py-12 bg-white shadow-md rounded-lg">
         <div class="max-w-4xl mx-auto px-4">
           <div class="text-left border-l-4 border-gray-400 pl-4">
@@ -167,18 +146,13 @@
         </div>
       </header>
 
-      <!-- Container principal do jogo -->
       <main class="flex-grow flex items-center justify-center pt-8">
         <div id="game-container" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-          <!-- As cartas serão geradas pelo JavaScript aqui -->
         </div>
       </main>
 
     </section>
 
-    <!-- ======================= -->
-    <!--    PÁGINA BIOGRAFIAS    -->
-    <!-- ======================= -->
     <section id="page-biografias" class="page-section hidden container mx-auto p-4 md:p-8">
       <div class="bg-white shadow-xl rounded-lg p-6 md:p-12">
         <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-8 text-center border-b-2 border-gray-200 pb-4">
@@ -187,7 +161,6 @@
         
         <div class="space-y-12">
           
-          <!-- Biografia 1 -->
           <div class="flex flex-col md:flex-row gap-6 items-start">
             <img src="imagens/1.png" alt="Enedina Alves Marques" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
             <div class="md:w-2/3 text-left">
@@ -198,7 +171,6 @@
             </div>
           </div>
 
-          <!-- Biografia 2 -->
           <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
             <img src="imagens/3.png" alt="Gerald A. 'Jerry' Lawson" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
             <div class="md:w-2/3 text-left">
@@ -209,7 +181,6 @@
             </div>
           </div>
 
-          <!-- Biografia 3 -->
           <div class="flex flex-col md:flex-row gap-6 items-start">
             <img src="imagens/5.png" alt="Hadiyah-Nicole Green" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
             <div class="md:w-2/3 text-left">
@@ -220,7 +191,6 @@
             </div>
           </div>
 
-          <!-- Biografia 4 -->
           <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
             <img src="imagens/7.png" alt="Jane Cooke Wright" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
             <div class="md:w-2/3 text-left">
@@ -231,7 +201,6 @@
             </div>
           </div>
 
-          <!-- Biografia 5 -->
           <div class="flex flex-col md:flex-row gap-6 items-start">
             <img src="imagens/9.png" alt="Janice Wilkins" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
             <div class="md:w-2/3 text-left">
@@ -242,7 +211,6 @@
             </div>
           </div>
 
-          <!-- Biografia 6 -->
           <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
             <img src="imagens/11.png" alt="Mark Dean" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
             <div class="md:w-2/3 text-left">
@@ -253,7 +221,6 @@
             </div>
           </div>
 
-          <!-- Biografia 7 -->
           <div class="flex flex-col md:flex-row gap-6 items-start">
             <img src="imagens/13.png" alt="Otis Boykin" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
             <div class="md:w-2/3 text-left">
@@ -264,7 +231,6 @@
             </div>
           </div>
 
-          <!-- Biografia 8 -->
           <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
             <img src="imagens/15.png" alt="Patricia Bath" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
             <div class="md:w-2/3 text-left">
@@ -275,7 +241,6 @@
             </div>
           </div>
 
-          <!-- Biografia 9 -->
           <div class="flex flex-col md:flex-row gap-6 items-start">
             <img src="imagens/17.png" alt="Phillip Emeagwali" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
             <div class="md:w-2/3 text-left">
@@ -286,7 +251,6 @@
             </div>
           </div>
 
-          <!-- Biografia 10 -->
           <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
             <img src="imagens/19.png" alt="Sonia Guimarães" class="w-full md:w-1/3 rounded-lg shadow-md border-4 border-white">
             <div class="md:w-2/3 text-left">
@@ -303,7 +267,6 @@
 
   </main>
 
-  <!-- Mensagem de vitória (Modal) -->
   <div id="win-message" class="hidden fixed inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center text-center p-4 z-50">
     <div class="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full transform transition-all scale-95 opacity-0 animate-fade-in-up">
       <h2 class="text-3xl font-bold text-gray-900">Parabéns!</h2>
@@ -314,12 +277,10 @@
     </div>
   </div>
   
-  <!-- Rodapé -->
   <footer class="text-center py-10 bg-black text-slate-300 mt-auto">
     <div class="container mx-auto px-4">
         <h3 class="text-2xl font-semibold mb-6">Contatos dos Desenvolvedores</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <!-- Isabela Fernanda -->
             <div>
                 <p class="font-bold text-lg text-white">Isabela Fernanda</p>
                 <div class="flex justify-center gap-4 mt-2">
@@ -331,11 +292,10 @@
                     </a>
                 </div>
             </div>
-            <!-- Maria Luiza -->
             <div>
                 <p class="font-bold text-lg text-white">Maria Luiza</p>
                 <div class="flex justify-center gap-4 mt-2">
-                    <a href="https://github.com/wanessamsr" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Maria Luiza">
+                    <a href="https://github.com/MariaDev01" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Maria Luiza">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                     </a>
                     <a href="https://www.instagram.com/marialuizafnds?igsh=ODJmZ2hlMWM0azRw" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram de Maria Luiza">
@@ -343,11 +303,10 @@
                     </a>
                 </div>
             </div>
-            <!-- Matheus Rodrigues -->
             <div>
                 <p class="font-bold text-lg text-white">Matheus Rodrigues</p>
                 <div class="flex justify-center gap-4 mt-2">
-                    <a href="https://github.com/wanessamsr" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Matheus Rodrigues">
+                    <a href="https://github.com/MathDev00" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub de Matheus Rodrigues">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                     </a>
                     <a href="https://www.instagram.com/matheusroalv?igsh=MTFkZzI1MTZwMDM3cQ==" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram de Matheus Rodrigues">
@@ -355,7 +314,6 @@
                     </a>
                 </div>
             </div>
-            <!-- Wanessa Martins -->
             <div>
                 <p class="font-bold text-lg text-white">Wanessa Martins</p>
                 <div class="flex justify-center gap-4 mt-2">
@@ -374,43 +332,36 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-      // --- LÓGICA DA NAVEGAÇÃO ---
       const navLinks = document.querySelectorAll('.nav-link');
       const pages = document.querySelectorAll('.page-section');
       const startGameBtn = document.getElementById('start-game-btn');
       const seeBiosBtn = document.getElementById('see-bios-btn');
 
       function showPage(pageId) {
-        // Esconde todas as páginas
         pages.forEach(page => {
           page.classList.add('hidden');
         });
 
-        // Mostra a página solicitada
         const activePage = document.getElementById(pageId);
         if (activePage) {
           activePage.classList.remove('hidden');
         }
 
-        // Atualiza o link ativo na navegação
         navLinks.forEach(link => {
           if (link.dataset.page === pageId) {
-            link.classList.add('bg-gray-800'); // Adiciona a cor de fundo ativa
+            link.classList.add('bg-gray-800'); 
           } else {
-            link.classList.remove('bg-gray-800'); // Remove a cor de fundo ativa
+            link.classList.remove('bg-gray-800'); 
           }
         });
         
-        // Rola para o topo da página
         window.scrollTo(0, 0);
 
-        // Inicia o jogo apenas se estivermos na página do jogo
         if (pageId === 'page-jogo' && !gameInitialized) {
           initializeGame();
         }
       }
 
-      // Adiciona eventos aos links de navegação
       navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
@@ -420,7 +371,6 @@
         });
       });
 
-      // Adiciona eventos aos botões da Home
       startGameBtn.addEventListener('click', () => {
         showPage('page-jogo');
         window.location.hash = 'jogo';
@@ -431,7 +381,6 @@
         window.location.hash = 'biografias';
       });
 
-      // Verifica se há um hash na URL ao carregar
       const currentHash = window.location.hash.substring(1);
       if (currentHash === 'jogo') {
         showPage('page-jogo');
@@ -441,7 +390,6 @@
         showPage('page-home');
       }
 
-      // --- LÓGICA DO CARROSSEL ---
       const carouselContainer = document.getElementById("image-carousel");
       let carouselInitialized = false;
 
@@ -455,46 +403,38 @@
         ];
         let currentImageIndex = 0;
 
-        // Pré-carrega as imagens do carrossel para uma transição mais suave
         carouselImages.forEach(src => {
             const img = new Image();
             img.src = src;
         });
 
         function showNextImage() {
-            if (!carouselContainer) return; // Garante que o container exista
-            // Remove a imagem antiga
+            if (!carouselContainer) return; 
             const oldImage = carouselContainer.querySelector('img');
             if (oldImage) {
                 oldImage.style.opacity = '0';
-                setTimeout(() => oldImage.remove(), 1500); // Remove após a transição
+                setTimeout(() => oldImage.remove(), 1500);
             }
             
-            // Cria e exibe a nova imagem
             const newImg = document.createElement('img');
             newImg.src = carouselImages[currentImageIndex];
             newImg.className = 'carousel-item absolute top-0 left-0 w-full h-full object-cover opacity-0';
             carouselContainer.appendChild(newImg);
             
-            // Força o navegador a aplicar a classe antes de mudar a opacidade
             setTimeout(() => {
                 newImg.style.opacity = '1';
             }, 50);
 
-            // Atualiza o índice para a próxima imagem
             currentImageIndex = (currentImageIndex + 1) % carouselImages.length;
         }
 
-        // Inicia o carrossel
         showNextImage();
-        setInterval(showNextImage, 5000); // Muda a imagem a cada 5 segundos
+        setInterval(showNextImage, 5000); 
       }
       
-      // Inicia o carrossel imediatamente
       initializeCarousel();
 
 
-      // --- LÓGICA DO JOGO DA MEMÓRIA ---
       const gameContainer = document.getElementById("game-container");
       const winMessage = document.getElementById("win-message");
       const restartButton = document.getElementById("restart");
@@ -504,10 +444,10 @@
       let matchedPairs = 0;
       let canFlip = true;
       const totalPairs = 10;
-      let gameInitialized = false; // Flag para controlar inicialização
+      let gameInitialized = false;
 
       function createCards() {
-          gameContainer.innerHTML = ""; // Limpa o container
+          gameContainer.innerHTML = ""; 
           const pairs = [];
           for (let i = 1; i <= 20; i += 2) {
               pairs.push([`imagens/${i}.png`, `imagens/${i + 1}.png`]);
@@ -577,16 +517,14 @@
           modalContent.classList.add('scale-95', 'opacity-0');
           setTimeout(() => {
               winMessage.classList.add("hidden");
-              // Não limpa o gameContainer, apenas re-cria as cartas
               cards = [];
               flippedCards = [];
               matchedPairs = 0;
               canFlip = true;
-              createCards(); // Recria as cartas
+              createCards(); 
           }, 300);
       }
 
-      // Função para inicializar o jogo
       function initializeGame() {
         if (gameInitialized) return;
         gameInitialized = true;
