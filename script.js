@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- LÓGICA DO CARROSSEL ---
     const carouselContainer = document.getElementById("image-carousel");
     const carouselImages = [
         'imagens/c1.png',
@@ -7,41 +6,33 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     let currentImageIndex = 0;
 
-    // Pré-carrega as imagens do carrossel para uma transição mais suave
     carouselImages.forEach(src => {
         const img = new Image();
         img.src = src;
     });
 
     function showNextImage() {
-        // Remove a imagem antiga
         const oldImage = carouselContainer.querySelector('img');
         if (oldImage) {
             oldImage.style.opacity = '0';
-            setTimeout(() => oldImage.remove(), 1500); // Remove após a transição
+            setTimeout(() => oldImage.remove(), 1500); 
         }
         
-        // Cria e exibe a nova imagem
         const newImg = document.createElement('img');
         newImg.src = carouselImages[currentImageIndex];
         newImg.className = 'carousel-item absolute top-0 left-0 w-full h-full object-cover opacity-0';
         carouselContainer.appendChild(newImg);
         
-        // Força o navegador a aplicar a classe antes de mudar a opacidade
         setTimeout(() => {
             newImg.style.opacity = '1';
         }, 50);
 
-        // Atualiza o índice para a próxima imagem
         currentImageIndex = (currentImageIndex + 1) % carouselImages.length;
     }
 
-    // Inicia o carrossel
     showNextImage();
-    setInterval(showNextImage, 5000); // Muda a imagem a cada 5 segundos
+    setInterval(showNextImage, 5000);
 
-
-    // --- LÓGICA DO JOGO DA MEMÓRIA ---
     const gameContainer = document.getElementById("game-container");
     const winMessage = document.getElementById("win-message");
     const restartButton = document.getElementById("restart");
@@ -62,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         shuffled.forEach(imgSrc => {
             const card = document.createElement("div");
-            // Aumento do tamanho das cartas
             card.classList.add("card", "w-40", "h-56", "md:w-52", "md:h-72", "cursor-pointer");
             card.innerHTML = `
               <div class="card-inner">
