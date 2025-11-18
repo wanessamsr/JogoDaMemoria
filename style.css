@@ -1,9 +1,7 @@
-/* Estilos personalizados */
 body {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Animação de virar a carta */
 .card {
   perspective: 1000px;
 }
@@ -33,7 +31,6 @@ body {
   transform: rotateY(180deg);
 }
 
-/* Estilos para o carrossel */
 .carousel-item {
   transition: opacity 1.5s ease-in-out;
 }
